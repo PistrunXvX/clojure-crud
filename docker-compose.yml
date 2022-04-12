@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:13.3
+    container_name: "crud_test_medaidb"
+    environment:
+      POSTGRES_DB: "medaidb"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+    ports:
+      - "5432:5432"
+    volumes:
+      - .:/var/lib/postgresql/medaidb

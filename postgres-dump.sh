@@ -1,0 +1,1 @@
+docker exec -i crud_test_medaidb pg_dump -U admin medaidb > dump.sql

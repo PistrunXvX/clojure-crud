@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="crad">
+            <div class="card-header">
+                Карта пациента | Редактирование
+            </div>
+            <div class="card-body">
+                <form action="/patient/{{patient-old.id}}" method="post">
+                    <div class="mb-3">
+                        <label for="inputFirstName" class="form-label">Имя</label>
+                        <input type="text" required name="first_name" class="form-control" id="inputFirstName" placeholder="Ваша фамилия" value="{{patient-old.first_name}}">
+                        {% if errors.first_name %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.first_name|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputSecondName" class="form-label">Фамилия</label>
+                        <input type="text" required name="second_name" class="form-control" id="inputSecondName" placeholder="Ваше имя" value="{{patient-old.second_name}}">
+                        {% if errors.second_name %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.second_name|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputMiddleName" class="form-label">Отчество</label>
+                        <input type="text" required name="middle_name" class="form-control" id="inputMiddleName" placeholder="Ваше отчество" value="{{patient-old.middle_name}}">
+                        {% if errors.middle_name %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.middle_name|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <label for="inlineRadio1" class="form-label">Пол</label>
+                    <div class="mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" checked>
+                            <label class="form-check-label" for="inlineRadio1">Мужской</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                            <label class="form-check-label" for="inlineRadio2">Женский</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="non-binary">
+                            <label class="form-check-label" for="inlineRadio3">Небинарный</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDate" class="form-label">Дата рождения</label>
+                        <input type="date" required name="birthday_date" class="form-control" id="inputDate" value="{{patient-old.birthday_date}}">
+                        {% if errors.birthday_date %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.birthday_date|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputAdsress" class="form-label">Адрес</label>
+                        <input type="text" required name="address_name" class="form-control" id="inputAdsress" placeholder="Ваш адрес" value="{{patient-old.address_name}}">
+                        {% if errors.address_name %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.address_name|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPolicy_number" class="form-label">Номер полиса ОМС</label>
+                        <input type="number" required name="policy_number" class="form-control" id="inputPolicy_number" placeholder="Номер полиса ОМС" value="{{patient-old.policy_number}}" >
+                        {% if errors.policy_number %}
+                        <div class="form-text" style="color: #dc3545;">
+                            {{errors.policy_number|join}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <button type="submit" name="id" value="{{patient-old.id}}" class="btn btn-primary">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
