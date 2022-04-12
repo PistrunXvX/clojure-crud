@@ -1,21 +1,29 @@
-# crud
+# CRUD example clojure project
 
-generated using Luminus version "4.36"
+# Тестовое задание для компании [Health Samurai](https://www.health-samurai.io/)
 
-FIXME
+## Стек
+- Основан на [Luminus](https://luminusweb.com/)
+- Сборка на [Leiningen](https://leiningen.org/)
+- Для UI используется [Bootstrap5](https://getbootstrap.com/)
 
-## Prerequisites
+## Запуск
+- **Локально**
+  - Запустить контейнер `docker-compose up -d`
+  - Сдампить БД
+  - Запуск проекта `lein run`
 
-You will need [Leiningen][1] 2.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein run 
-
-## License
-
-Copyright © 2022 FIXME
+## Задачи
+- [x] Настройка проекта
+- [ ] Создание dataset'a
+- [ ] UI
+    - [ ] Домашняя страница
+    - [ ] Страница создания пациента
+    - [ ] Страница редактирования пациента
+- [ ] CRUD
+    - [ ] Создание
+    - [ ] Удаление
+    - [ ] Редактирование
+- [ ] Валидация
+- [ ] Фильтрация
+- [ ] Тестирование (не могу разобраться) 
