@@ -2,6 +2,37 @@
 {% block content %}
 <div class="row">
     <div class="col">
+        <div class="row">
+            <div class="col">
+                <label for="findByFirstName" class="form-control">Поиск по имени</label>
+                <input type="text" class="form-control filter-first-name" id="findByFirstName">
+            </div>
+            <div class="col">
+                <label for="findBySecondName" class="form-control">Поиск по Фамилии</label>
+                <input type="text" class="form-control filter-second-name" id="findBySecondName">
+            </div>
+            <div class="col">
+                <label for="findByMiddleName" class="form-control">Поиск по Отчеству</label>
+                <input type="text" class="form-control filter-middle-name" id="findByMiddleName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Поиск по гендеру</p>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input filter-male-gender" name="genderRadio" id="findByMaleGender" value="male">
+                    <label for="findByMaleGender" class="form-check-label">Мужчина</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input filter-female-gender" name="genderRadio" id="findByFemaleGender" value="female">
+                    <label for="findByFemaleGender" class="form-check-label">Женщина</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input filter-non-binary-gender" name="genderRadio" id="findByNonBinaryGender" value="non-binary">
+                    <label for="findByNonBinaryGender" class="form-check-label">Небинарный</label>
+                </div>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -19,15 +50,15 @@
             </thead>
             <tbody>
                 {% for patient in patients %}
-                <tr>
-                    <th scope="row">{{patient.id}}</th>
-                    <td>{{patient.first_name}}</td>
-                    <td>{{patient.second_name}}</td>
-                    <td>{{patient.middle_name}}</td>
-                    <td>{{patient.gender}}</td>
-                    <td>{{patient.birthday_date}}</td>
-                    <td>{{patient.address_name}}</td>
-                    <td>{{patient.policy_number}}</td>
+                <tr class="patient">
+                    <th scope="row" class="id">{{patient.id}}</th>
+                    <td class="first_name">{{patient.first_name}}</td>
+                    <td class="second_name">{{patient.second_name}}</td>
+                    <td class="middle_name">{{patient.middle_name}}</td>
+                    <td class="gender">{{patient.gender}}</td>
+                    <td class="birthday_date">{{patient.birthday_date}}</td>
+                    <td class="address_name">{{patient.address_name}}</td>
+                    <td class="policy_number">{{patient.policy_number}}</td>
                     <td><form><a href="/patient/{{patient.id}}" class="btn btn-outline-primary">Изменить</a></form></td>
                     <td><form><button type="submit" value="{{patient.id}}" name="id" formaction="/delete" formmethod="post" class="btn btn-outline-danger">Удалить</button></form></td>
                 </tr>
@@ -36,4 +67,86 @@
         </table>
     </div>
 </div>
+<script>
+    let inputFirstName = document.querySelector(".filter-first-name");
+    let inputSecondName = document.querySelector(".filter-second-name");
+    let inputMiddleName = document.querySelector(".filter-middle-name");
+    let inputMaleGender = document.querySelector(".filter-male-gender");
+    let inputFemaleGender = document.querySelector(".filter-female-gender");
+    let inputNonBinaryGender = document.querySelector(".filter-non-binary-gender");
+    let patientsList = document.querySelectorAll(".patient");
+
+    inputFirstName.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let firstName = patientsList[i].querySelector(".first_name").innerHTML;
+            if(firstName.search(inputFirstName.value) < 0) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+    inputSecondName.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let secondName = patientsList[i].querySelector(".second_name").innerHTML;
+            if(secondName.search(inputSecondName.value) < 0) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+    inputMiddleName.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let middleName = patientsList[i].querySelector(".middle_name").innerHTML;
+            if(middleName.search(inputMiddleName.value) < 0) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+    inputMaleGender.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let gender = patientsList[i].querySelector(".gender").innerHTML;
+            if(gender != inputMaleGender.value) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+    inputFemaleGender.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let gender = patientsList[i].querySelector(".gender").innerHTML;
+            if(gender != inputFemaleGender.value) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+    inputNonBinaryGender.oninput = function() {
+        for(let i = 0; i < patientsList.length; i++) {
+            let gender = patientsList[i].querySelector(".gender").innerHTML;
+            if(gender != inputNonBinaryGender.value) {
+                patientsList[i].classList.add("invisible");
+            } else {
+                patientsList[i].classList.remove("invisible");
+            }
+        }
+    };
+
+</script>
+
+<style>
+    .invisible {
+        display: none;
+    }
+</style>
 {% endblock %}
