@@ -2,7 +2,7 @@ version: "3.3"
 services:
   postgres:
     image: postgres:13.3
-    container_name: "crud_test_medaidb"
+    container_name: "crud_medaidb"
     environment:
       POSTGRES_DB: "medaidb"
       POSTGRES_USER: "admin"

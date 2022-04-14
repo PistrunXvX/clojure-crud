@@ -22,3 +22,7 @@ SET first_name = :first_name, second_name = :second_name,
 middle_name = :middle_name, gender = :gender, birthday_date = :birthday_date,
 address_name = :address_name, policy_number = :policy_number
 WHERE id = :id::int;
+
+-- :name test-get-id-by-policy-number :? :1
+SELECT id FROM patient
+WHERE policy_number = :policy_number;

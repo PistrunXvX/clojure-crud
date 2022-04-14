@@ -4,5 +4,5 @@
 
 {:port 3000
  ; set your test database connection URL here
- :database-url "postgresql://localhost/crud_test_medaidb?user=admin&password=admin"
+ :database-url "postgresql://localhost/medaidb?user=admin&password=admin"
 }

@@ -1,0 +1,1 @@
+docker exec -i crud_medaidb psql -U admin medaidb < dump.sql
