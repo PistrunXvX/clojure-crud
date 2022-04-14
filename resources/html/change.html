@@ -38,15 +38,27 @@
                     <label for="inlineRadio1" class="form-label">Пол</label>
                     <div class="mb-3">
                         <div class="form-check form-check-inline">
+                            {% ifequal patient-old.gender "male" %} 
                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" checked>
+                            {% else %}
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+                            {% endifequal %}
                             <label class="form-check-label" for="inlineRadio1">Мужской</label>
                         </div>
                         <div class="form-check form-check-inline">
+                            {% ifequal patient-old.gender "female" %} 
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" checked>
+                            {% else %}
                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                            {% endifequal %}
                             <label class="form-check-label" for="inlineRadio2">Женский</label>
                         </div>
                         <div class="form-check form-check-inline">
+                            {% ifequal patient-old.gender "non-binary" %}
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="non-binary" checked>
+                            {% else %}
                             <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="non-binary">
+                            {% endifequal %}
                             <label class="form-check-label" for="inlineRadio3">Небинарный</label>
                         </div>
                     </div>
