@@ -29,7 +29,10 @@
       (let [response ((app) (request :get "/patient/20"))]
         (is (= 200 (:status response)))))))
 
-;; (deftest test-post-routs
-;;   (testing "create patient"
-;;     (let [response ((app) (request :post "/delete"))]
-;;       (is (= 201 (:status response))))))
+(deftest test-post-routs
+  (testing "create patient"
+    (let [response ((app) (request :post "/patient"))]
+      (is (= 302 (:status response)))))
+  (testing "update patient"
+    (let [response ((app) (request :post "/patient/20"))]
+      (is (= 302 (:status response))))))
