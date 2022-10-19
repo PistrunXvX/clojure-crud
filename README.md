@@ -1,29 +1,29 @@
 # CRUD example clojure project
 
-# Тестовое задание для компании [Health Samurai](https://www.health-samurai.io/)
+# Test task for the company [Health Samurai](https://www.health-samurai.io/)
 
-## Стек
-- Основан на [Luminus](https://luminusweb.com/)
-- Сборка на [Leiningen](https://leiningen.org/)
-- Для UI используется [Bootstrap5](https://getbootstrap.com/)
+## Stack
+- Based on [Luminus](https://luminusweb.com/)
+- Build on [Leiningen](https://leiningen.org/)
+- For UI used [Bootstrap5](https://getbootstrap.com/)
 
-## Запуск
-- **Локально**
-  - Запустить контейнер `docker-compose up -d`
-  - Сдампить БД `./postgres-restore-dump`
-  - Запуск проекта `lein run`
+## Start
+- **local**
+  - Start container `docker-compose up -d`
+  - Make dump `./postgres-restore-dump`
+  - Start project `lein run`
 
-## Задачи
-- [x] Настройка проекта
-- [x] Создание dataset'a
+## Tasks
+- [x] Settings project
+- [x] make dataset'a
 - [x] UI
-    - [x] Домашняя страница
-    - [x] Страница создания пациента
-    - [x] Страница редактирования пациента
+    - [x] Home page
+    - [x] Patient create page
+    - [x] Patient edit page
 - [x] CRUD
-    - [x] Создание
-    - [x] Удаление
-    - [x] Редактирование
-- [x] Валидация
-- [x] Фильтрация
-- [x] Тестирование (готово) 
+    - [x] Create
+    - [x] Delet
+    - [x] Update
+- [x] Validation
+- [x] Filtration
+- [x] Testing (готово) 
