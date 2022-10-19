@@ -22,7 +22,7 @@
     - [x] Patient edit page
 - [x] CRUD
     - [x] Create
-    - [x] Delet
+    - [x] Delete
     - [x] Update
 - [x] Validation
 - [x] Filtration
